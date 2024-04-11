@@ -4,6 +4,12 @@
     - [Baimen taldeak](#baimen-taldeak)
     - [Baimenak esleitzen modu sinbolikoan](#baimenak-esleitzen-modu-sinbolikoan)
     - [Baimenak modu oktalean](#baimenak-modu-oktalean)
+  - [Sticky bit baimena](#sticky-bit-baimena)
+  - [SUID eta GUID baimenak](#suid-eta-guid-baimenak)
+    - [SUID](#suid)
+  - [Ezaugarri bereziak Lsattr eta chattr](#ezaugarri-bereziak-lsattr-eta-chattr)
+- [Ariketak](#ariketak)
+  - [Ariketak 1](#ariketak-1)
 
 ## Fitxategi eta direktorioen baimenak
 
@@ -105,3 +111,88 @@ Sticky bita kentzeko
 chmod -t text.txt
 ```
 ![alt text](image-2.png)
+
+## SUID eta GUID baimenak
+
+### SUID
+
+SUID aktibatuta dagoenean fitxategi hau exekutatzen duen erabiltzaileak sortzailearen baimenak izango ditu.
+
+```bash
+chmod u+s text.txt
+```
+
+Sortu exekutable bat root bezala hurrengo edukiarekin eta izenarekin.
+
+suidtext.sh
+```bash
+#!/bin/bash
+echo erabiltzailea
+id
+echo exekuzio baimen erabiltzailea
+echo $EUID
+```
+
+Baimenak esleituko dizkiogu fitxategiari
+```bash
+chmod 755 suidtext.sh
+```
+
+Ezarri SUID suidtext.sh fitxategiari
+
+```bash
+chmod u+s suidtext.sh
+```
+```bash
+chmod 4755 suidtext.sh
+```
+
+## Ezaugarri bereziak Lsattr eta chattr
+
+Ezaugarrri bereziak ikusteko `lsattr` agindua erabiliko dugu.
+
+Ezaugarri bereziak aldatzeko `chattr` agindua erabiliko dugu.
+
+Adibidez i atributoaren fitxategi bat inmutablea bilakatzen digu. Hau esan nahi du inork ezin duela ezabatu, ezta root-ek. Ezabatu nahi izaterakotan, i atributoa kendu beharko genioke lehenago.
+```bash
+chattr +i text.txt
+lsattr text.txt
+```
+
+**u** ezaugarriarekin fitxategi bat ezabatzen dugunean datuak gordeta gelditzen dira eta bere berreskurapena ahalbidetzen du.
+```bash
+chattr +u text.txt
+```
+
+
+**e** ezaugarriarekin fitxategi bat ezabatzen denean, okupatzen zuen memoria zeroekin berridazten da.
+
+```bash
+chattr +e text.txt
+```
+
+**c** ezaugarriarekin fitxategi bat konprimituta gordeko da.
+```bash
+chattr +c text.txt
+```
+
+**a** ezaugarriarekin fitxategi bati bakarrik gehitu ahal zaizkio gauzak, hau da, ezin da aldatu aurretik zegoen ezer.
+```bash
+chattr +a text.txt
+```
+
+# Ariketak
+
+## Ariketak 1
+
+lotu dagokion baimenarekin: 
+  
+  - rwx--x--x  711
+  - --x-w--wx  123
+  - --x-----x  101
+  - -wx-wx-wx  333
+  - r-xrw-rwx  567
+  - rwxrw-r-x  765
+  - --xrw--w-  162
+  - r--rw--w-  462
+  - --xrw---x  161
