@@ -210,7 +210,7 @@ lotu dagokion baimenarekin:
 Zein da fitxategi honen baimenen baimena modu oktalean?
 ![alt text](image-3.png)
 
-Baimena modu oktalean da 464 
+Baimena modu oktalean da 546 
 
 
 ## Ariketak 3
@@ -223,7 +223,7 @@ Jarri hurrengo baimenak modu oktalean
 - --------x   001
 - rwsr-xr-x   4755
 - rwxr-sr-x   2755
-- r--rw---t   461
+- r--rw---t   1460
 
 ## Ariketa 4
 
