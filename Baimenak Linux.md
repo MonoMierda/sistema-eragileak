@@ -10,6 +10,12 @@
   - [Ezaugarri bereziak Lsattr eta chattr](#ezaugarri-bereziak-lsattr-eta-chattr)
 - [Ariketak](#ariketak)
   - [Ariketak 1](#ariketak-1)
+  - [Ariketak 2](#ariketak-2)
+  - [Ariketak 3](#ariketak-3)
+  - [Ariketa 4](#ariketa-4)
+  - [Ariketa 5](#ariketa-5)
+  - [Ariketa 6](#ariketa-6)
+  - [Ariketa 7](#ariketa-7)
 
 ## Fitxategi eta direktorioen baimenak
 
@@ -146,6 +152,7 @@ chmod u+s suidtext.sh
 ```bash
 chmod 4755 suidtext.sh
 ```
+Nola idatzi 
 
 ## Ezaugarri bereziak Lsattr eta chattr
 
@@ -196,3 +203,57 @@ lotu dagokion baimenarekin:
   - --xrw--w-  162
   - r--rw--w-  462
   - --xrw---x  161
+
+
+## Ariketak 2
+
+Zein da fitxategi honen baimenen baimena modu oktalean?
+![alt text](image-3.png)
+
+Baimena modu oktalean da 464 
+
+
+## Ariketak 3
+
+Jarri hurrengo baimenak modu oktalean
+
+- r--r-xrw-   456
+- --xr-xr--   154
+- r--------   400
+- --------x   001
+- rwsr-xr-x   4755
+- rwxr-sr-x   2755
+- r--rw---t   461
+
+## Ariketa 4
+
+Zer gertatuko da hurrengo agindua exekutatzerakoan?
+
+![](image-4.png)
+
+2. 'Whoami' komandoaren output-a ezin izango da file fitxategian gorde, jabea izan arren, fitxategian esleitutako baimena gailentzen delako
+
+
+## Ariketa 5 
+
+Nola lortuko zenuke "file" artxiboaren baimenak ikusten den moduan aldatzeko?
+
+![](image-5.png)
+
+chmod 741 file
+
+## Ariketa 6
+
+Zortzitarrean zer baimen esleitu beharko dut artxiboak adierazitako baimenak izan ditzan lortzeko?
+
+![alt text](image-6.png)
+
+chmod 625 file 
+
+## Ariketa 7 
+
+Honako baimen hauek konfiguratuta dituen fitxategi hau ezabatu ahal izango dut?
+
+![alt text](image-7.png)
+
+BAI
