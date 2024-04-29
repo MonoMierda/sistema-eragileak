@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-echo "Sartu fitxategiak ezkutuko hutsunerako zatitzen:"
+echo "Sartu fitxategiaren izena"
 read -a fitxategiak
 
 for fitxategia in "${fitxategiak[@]}"; do
@@ -11,6 +11,6 @@ for fitxategia in "${fitxategiak[@]}"; do
         cat "$fitxategia"
         
     else
-        echo "Errorea: Fitxategia $fitxategia ez da existitzen."
+        echo "Fitxategia $fitxategia ez da existitzen."
     fi
 done

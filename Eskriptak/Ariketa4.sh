@@ -1,27 +1,22 @@
 #!/bin/bash
 
 echo "Sartu lehenengo balioa:"
-read balio1
+read lehenengo_balio
 
-echo "Eragiketa aukeratu: (+, -, *, /)"
+
+echo "Aukeratu eragiketa (+, -, *, /):"
 read eragiketa
 
 echo "Sartu bigarren balioa:"
-read balio2
+read bigarren_balio
+
 
 case $eragiketa in
-    "+")
-        emaitza=$(echo "$balio1 + $balio2" | bc)
-        ;;
-    "-")
-        emaitza=$(echo "$balio1 - $balio2" | bc)
-        ;;
-    "*")
-        emaitza=$(echo "$balio1 * $balio2" | bc)
-        ;;
-    "/")
-        emaitza=$(echo "scale=2; $balio1 / $balio2" | bc)
-        ;;
+    "+") emaitza=$(echo "$lehenengo_balio + $bigarren_balio" | bc) ;;
+    "-") emaitza=$(echo "$lehenengo_balio - $bigarren_balio" | bc) ;;
+    "*") emaitza=$(echo "$lehenengo_balio * $bigarren_balio" | bc) ;;
+    "/") emaitza=$(echo "scale=2; $lehenengo_balio / $bigarren_balio" | bc) ;;
+    *) echo "Errorea: Eragiketa okerra." ;;
 esac
 
 echo "Emaitza: $emaitza"
